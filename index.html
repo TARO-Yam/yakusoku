@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="きょうの約束">
+<meta name="theme-color" content="#FFF8F2">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFUElEQVR4Xu2d23XcMAwF5Zy0liLSigtIKynT+dCJs9mHRfAB4IIznzlcWQKGF7R37bx9vP84AJ7xjbLAK5ADkAPskBxAcoAdkgNIDrBDcgDJAXZIDiA5wA7JASQH2CE5gOQAOyQHkBxgh+QAkgPskBxAcoAdkgNIDrBDcgDJAXZIDiA5wA7JASQH2Pluf0kV3n8bnuTXT8PiKrzt8icYTCq0sIEupeWYLsQriopSUQ43Jx6pZUktOQK1uKWKIiXkSOJEuSARlyOtFiWCRFYOCS3EFdH8CamcGceheM9qyaGoxR06x1Wp5ChghlSEiCRHDS3UIkQhOUqaoRAh6eWoasZJ7qdLPFZyF24yKU+pWZNjKzOyRkhKOXYzI+uIySfHnmak9COZHDubkc+PTHJgRjI/0siBGbfkqEYOOXLUIhcJapJDDkhJAjkSbJGkRFcmWo7o589OaH1C5Qh9chniqhQqB+QmTo64DaFHUK2C5Ah6WmEiKhYkBygQ8XmOiE0Qyd1nNUYe3/djH+5yjJRGji962V0HRz8YK8v4uouOPe7GV47u7SJHS+9b1jziWENfOTahvevtKyNwlMNR+eJ4VdJRjk2whoF1vSPIAS/xksMrCYNxiwGXenrJsQNuZnjhIoeL5sH4m7G+qi5ylGfEjPU97gY5hhkxIzfr5Ui8M+IZLM7gy69YL0dtRmJjcWvHQY4BSptxHMjRTXUz1suRPjk7yWPGygozVuzkMWMxyOHIyl2+AuQw0h0bamasP3MUYyczkMNCtxmyrBwrgkH6khEzVtdh2fU1/3fIib8J0kJmM1aiJsfTPp3/uGwD9ZPwliysHCvTCflNkO7YEDdD6kDa0qSWNSa6L6hvho4c7U1qX3nJxEtpIjVWGpnS1JGLlIgNkeTo6FPHS2ZRxQwROfoY8aP7tYXMKC3HcXT2GDP+UvHMMQJm3FBdDlOzTYs3QEGOwUHe2PLGZU8ZvMOsKMgxzkjjLylqhs6BdLwBi370Pn5jiVmZHHP363gbXt1P932O39IUuu//ipVyTGe8GY91XFbZAkjJcb4vP6jIrQ0jZgzehgJqcpwMNuZ0AjOu0JRjlh99DKqpg6wcUWxjxvpvZUei+xL/Pvl/xUtWVlg8ORJ2qxDicowfPtrZT0R9OXz82M+M9WeOwe8Y21navKUXH2HlgcNFDjcWtXDRZRUoMVY+md7I6ReUwkWOxen3H/u0c31VXeRwZpYfs64ji5cc6zWfnB/JzXCpp5ccWiQ3w4u6cnQ3uPuF5XCUwyUJJw+XnHhV0lGOEKwxYF1fGl85vJSvjGMNfeUIoT0M2lfugbscjuL/o6XrLWvC8a2euxxub8Xd8XXvMeMZan8wboTTgLvNJ6FFEG8f7z9ivjRdMeE7UE4ixspJxNOqElSrODkgPaFyBG0IMeKqFCoHw+WSODNCzxyfhD5/aqIrE50ckJgcckRvkYwkqEkOOTh83JHAjBxnDg4fKc1IJgf5kawCacYK+ZHMjHzJcZJj4nqT76nzJceefuQz4zgC35VtpPybtym1OMmaHJscQRKboSBH4SNIbjMUxsotZUZMei1ExsotIjW9QOcp4j4mOIJohOhoIZgc0qdUNTPUzhyPSESIoBYnmmPljrSKyGpRSI5Pklgi7sQnJZIjT5BU0aJickRZUsuJ0snxlOkTp6gQt1QcK42YdNlAhUc2lgOuSP+uLMSBHPAS5ADkADskB5AcYIfkAJID7JAcQHKAHZIDSA6wQ3IAyQF2SA4gOcAOyQEkB9ghOYDkADskB5AcYIfkAJID7JAcQHKAHZIDSA6w8wcnbELcAlK1/wAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFUElEQVR4Xu2d23XcMAwF5Zy0liLSigtIKynT+dCJs9mHRfAB4IIznzlcWQKGF7R37bx9vP84AJ7xjbLAK5ADkAPskBxAcoAdkgNIDrBDcgDJAXZIDiA5wA7JASQH2CE5gOQAOyQHkBxgh+QAkgPskBxAcoAdkgNIDrBDcgDJAXZIDiA5wA7JASQH2Pluf0kV3n8bnuTXT8PiKrzt8icYTCq0sIEupeWYLsQriopSUQ43Jx6pZUktOQK1uKWKIiXkSOJEuSARlyOtFiWCRFYOCS3EFdH8CamcGceheM9qyaGoxR06x1Wp5ChghlSEiCRHDS3UIkQhOUqaoRAh6eWoasZJ7qdLPFZyF24yKU+pWZNjKzOyRkhKOXYzI+uIySfHnmak9COZHDubkc+PTHJgRjI/0siBGbfkqEYOOXLUIhcJapJDDkhJAjkSbJGkRFcmWo7o589OaH1C5Qh9chniqhQqB+QmTo64DaFHUK2C5Ah6WmEiKhYkBygQ8XmOiE0Qyd1nNUYe3/djH+5yjJRGji962V0HRz8YK8v4uouOPe7GV47u7SJHS+9b1jziWENfOTahvevtKyNwlMNR+eJ4VdJRjk2whoF1vSPIAS/xksMrCYNxiwGXenrJsQNuZnjhIoeL5sH4m7G+qi5ylGfEjPU97gY5hhkxIzfr5Ui8M+IZLM7gy69YL0dtRmJjcWvHQY4BSptxHMjRTXUz1suRPjk7yWPGygozVuzkMWMxyOHIyl2+AuQw0h0bamasP3MUYyczkMNCtxmyrBwrgkH6khEzVtdh2fU1/3fIib8J0kJmM1aiJsfTPp3/uGwD9ZPwliysHCvTCflNkO7YEDdD6kDa0qSWNSa6L6hvho4c7U1qX3nJxEtpIjVWGpnS1JGLlIgNkeTo6FPHS2ZRxQwROfoY8aP7tYXMKC3HcXT2GDP+UvHMMQJm3FBdDlOzTYs3QEGOwUHe2PLGZU8ZvMOsKMgxzkjjLylqhs6BdLwBi370Pn5jiVmZHHP363gbXt1P932O39IUuu//ipVyTGe8GY91XFbZAkjJcb4vP6jIrQ0jZgzehgJqcpwMNuZ0AjOu0JRjlh99DKqpg6wcUWxjxvpvZUei+xL/Pvl/xUtWVlg8ORJ2qxDicowfPtrZT0R9OXz82M+M9WeOwe8Y21navKUXH2HlgcNFDjcWtXDRZRUoMVY+md7I6ReUwkWOxen3H/u0c31VXeRwZpYfs64ji5cc6zWfnB/JzXCpp5ccWiQ3w4u6cnQ3uPuF5XCUwyUJJw+XnHhV0lGOEKwxYF1fGl85vJSvjGMNfeUIoT0M2lfugbscjuL/o6XrLWvC8a2euxxub8Xd8XXvMeMZan8wboTTgLvNJ6FFEG8f7z9ivjRdMeE7UE4ixspJxNOqElSrODkgPaFyBG0IMeKqFCoHw+WSODNCzxyfhD5/aqIrE50ckJgcckRvkYwkqEkOOTh83JHAjBxnDg4fKc1IJgf5kawCacYK+ZHMjHzJcZJj4nqT76nzJceefuQz4zgC35VtpPybtym1OMmaHJscQRKboSBH4SNIbjMUxsotZUZMei1ExsotIjW9QOcp4j4mOIJohOhoIZgc0qdUNTPUzhyPSESIoBYnmmPljrSKyGpRSI5Pklgi7sQnJZIjT5BU0aJickRZUsuJ0snxlOkTp6gQt1QcK42YdNlAhUc2lgOuSP+uLMSBHPAS5ADkADskB5AcYIfkAJID7JAcQHKAHZIDSA6wQ3IAyQF2SA4gOcAOyQEkB9ghOYDkADskB5AcYIfkAJID7JAcQHKAHZIDSA6w8wcnbELcAlK1/wAAAABJRU5ErkJggg==">
+<title>きょうの約束</title>
+<style>
+:root{
+  --bg:#FFF8F2; --card:#FFFFFF; --ink:#2B2320; --sub:#8C7F78; --line:#F0E6DF;
+  --accent:#FF7A45; --accent-soft:#FFE6DA; --ok:#2FB57C; --ok-soft:#DDF5EA; --gold:#F5B300;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;
+  -webkit-user-select:none;user-select:none;overscroll-behavior:none}
+body{padding:env(safe-area-inset-top) 0 calc(76px + env(safe-area-inset-bottom))}
+main{max-width:520px;margin:0 auto;padding:12px 18px 24px}
+h1{font-size:15px;font-weight:600;color:var(--sub);margin:8px 0 2px}
+.datebar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.datebar .d{font-size:26px;font-weight:800;letter-spacing:.02em}
+.navbtn{width:40px;height:40px;border-radius:20px;border:none;background:var(--card);
+  box-shadow:0 1px 3px rgba(0,0,0,.06);font-size:18px;color:var(--ink)}
+.navbtn:disabled{opacity:.25}
+.hero{background:linear-gradient(135deg,#FF8A5B,#FF6B3D);color:#fff;border-radius:22px;padding:18px 20px;
+  display:flex;align-items:center;gap:16px;box-shadow:0 8px 20px rgba(255,107,61,.25);margin-bottom:18px}
+.ring{width:72px;height:72px;flex:none;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+.hero .t1{font-size:13px;opacity:.9}
+.hero .t2{font-size:24px;font-weight:800;margin:2px 0}
+.hero .t3{font-size:13px;opacity:.95}
+.list{display:flex;flex-direction:column;gap:10px}
+.item{background:var(--card);border-radius:18px;padding:14px 14px 14px 16px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .12s, background .2s}
+.item:active{transform:scale(.98)}
+.item.done{background:var(--ok-soft)}
+.emoji{font-size:28px;width:40px;text-align:center;flex:none}
+.item .name{font-size:17px;font-weight:700;line-height:1.3}
+.item .streak{font-size:12.5px;color:var(--sub);margin-top:3px}
+.item .streak b{color:var(--accent)}
+.check{margin-left:auto;width:44px;height:44px;border-radius:22px;border:2.5px solid var(--line);flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;transition:all .2s}
+.item.done .check{background:var(--ok);border-color:var(--ok);animation:pop .35s}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+.empty{text-align:center;color:var(--sub);padding:40px 10px;line-height:1.8}
+.btn{display:block;width:100%;border:none;border-radius:14px;padding:14px;font-size:16px;font-weight:700;
+  background:var(--accent);color:#fff;margin-top:12px}
+.btn.ghost{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.btn.danger{background:#fff;color:#D9433B;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.section{font-size:13px;color:var(--sub);font-weight:700;margin:22px 4px 8px}
+.card{background:var(--card);border-radius:18px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+/* tabs */
+nav{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;
+  padding:6px 0 calc(6px + env(safe-area-inset-bottom));z-index:10}
+nav button{flex:1;border:none;background:none;font-size:11px;color:var(--sub);padding:4px 0;display:flex;
+  flex-direction:column;align-items:center;gap:2px}
+nav button .i{font-size:22px;filter:grayscale(1);opacity:.6}
+nav button.on{color:var(--accent);font-weight:700}
+nav button.on .i{filter:none;opacity:1}
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .h{font-size:11px;color:var(--sub);text-align:center}
+.cal .c{aspect-ratio:1;border-radius:9px;background:#F4EEE9;display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:var(--sub)}
+.cal .c.l1{background:#FFD9C7;color:#7a4a35}.cal .c.l2{background:#FFB592;color:#5a2f1d}
+.cal .c.l3{background:#FF8A5B;color:#fff}.cal .c.full{background:var(--ok);color:#fff;font-weight:700}
+.cal .c.today{outline:2px solid var(--ink);outline-offset:-2px}
+.cal .c.out{background:transparent}
+.legend{display:flex;gap:10px;justify-content:flex-end;font-size:11px;color:var(--sub);margin-top:10px;align-items:center}
+.legend span{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:3px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:var(--card);border-radius:16px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.stat .v{font-size:26px;font-weight:800}.stat .k{font-size:12px;color:var(--sub)}
+.row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:none}
+.row .name{flex:1;font-weight:600}
+.row .small{font-size:12px;color:var(--sub)}
+.iconbtn{border:none;background:#F6F0EB;border-radius:10px;padding:8px 10px;font-size:14px;color:var(--ink)}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{background:#FFF3D6;color:#8a6200;border-radius:999px;padding:6px 10px;font-size:12.5px;font-weight:700}
+.badge.off{background:#F4EEE9;color:#bbb}
+/* sheet / modal */
+.overlay{position:fixed;inset:0;background:rgba(30,20,15,.4);display:none;align-items:flex-end;justify-content:center;z-index:30}
+.overlay.show{display:flex;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.sheet{background:var(--bg);width:100%;max-width:520px;border-radius:24px 24px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));
+  animation:up .25s ease-out;max-height:90vh;overflow:auto;-webkit-user-select:text;user-select:text}
+@keyframes up{from{transform:translateY(40px)}}
+.sheet h2{margin:0 0 14px;font-size:19px}
+label{font-size:13px;color:var(--sub);font-weight:700;display:block;margin:12px 0 6px}
+input[type=text],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px;font-size:16px;
+  background:#fff;font-family:inherit;color:var(--ink)}
+textarea{height:120px;font-size:12px}
+.emojis{display:flex;flex-wrap:wrap;gap:6px}
+.emojis button{font-size:24px;width:44px;height:44px;border-radius:12px;border:2px solid transparent;background:#fff}
+.emojis button.sel{border-color:var(--accent);background:var(--accent-soft)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}
+.presets button{border:none;background:#fff;border-radius:999px;padding:8px 12px;font-size:13px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.center{align-items:center}
+.praise{background:#fff;border-radius:28px;padding:28px 22px;width:86%;max-width:360px;text-align:center;animation:zoom .35s cubic-bezier(.2,1.4,.4,1)}
+@keyframes zoom{from{transform:scale(.6);opacity:0}}
+.praise .big{font-size:64px;line-height:1}
+.praise h3{font-size:22px;margin:12px 0 6px}
+.praise p{color:var(--sub);margin:0 0 6px;line-height:1.6}
+/* toast */
+.toast{position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top));transform:translate(-50%,-120px);
+  background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:14.5px;font-weight:600;
+  transition:transform .35s cubic-bezier(.2,1.3,.4,1);z-index:40;white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
+.toast.show{transform:translate(-50%,0)}
+canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:50}
+/* 達成表 */
+.tblhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.tblhead .ttl{font-weight:800;font-size:15px}
+.tblhead .navbtn{width:34px;height:34px;font-size:16px;background:#F6F0EB;box-shadow:none}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -6px;padding:0 6px}
+table.ach{border-collapse:separate;border-spacing:0;font-size:13px;min-width:100%}
+table.ach th,table.ach td{text-align:center;padding:7px 3px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.ach th{font-size:11px;color:var(--sub);font-weight:600;line-height:1.25}
+table.ach th.sun{color:#D9433B}table.ach th.sat{color:#3A73D9}
+table.ach th.tdy{color:var(--accent);font-weight:800}
+table.ach .nm{text-align:left;position:sticky;left:0;background:#fff;z-index:1;padding-right:8px;font-weight:700;
+  max-width:120px;overflow:hidden;text-overflow:ellipsis}
+table.ach .o{color:var(--ok);font-weight:800;font-size:15px}
+table.ach .x{color:#D9433B;font-size:14px}
+table.ach .na{color:#ccc}
+table.ach .rt{font-weight:800;color:var(--ink);padding-left:8px}
+table.ach tr.sum td{border-bottom:none;font-size:11px;color:var(--sub);font-weight:700}
+table.ach tr.sum td.rt{font-size:13px;color:var(--accent)}
+table.ach.week{table-layout:fixed;width:100%}
+table.ach.week .nm{width:84px;max-width:84px;font-size:12.5px;padding-right:4px}
+table.ach.week th.rt,table.ach.week td.rt{width:46px;padding-left:2px}
+table.ach.week tr.sum td{font-size:10.5px}
+table.ach.month th,table.ach.month td{padding:6px 0;min-width:24px;font-size:12px}
+table.ach.month .o{font-size:13px}table.ach.month .x{font-size:11px}
+table.ach.month .nm{font-size:12px;max-width:96px}
+table.ach.month tr.sum td{font-size:9.5px}
+.bigrate{display:flex;align-items:baseline;gap:6px;margin:2px 0 10px}
+.bigrate .v{font-size:30px;font-weight:800;color:var(--accent)}
+.bigrate .k{font-size:12.5px;color:var(--sub)}
+.bar{height:8px;background:#F4EEE9;border-radius:4px;overflow:hidden;margin-bottom:12px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#FF8A5B,#FF6B3D);border-radius:4px}
+.presets button.sel{background:var(--accent);color:#fff;font-weight:700}
+.goal{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.goal:last-child{border-bottom:none}
+.goal .name{flex:1;font-weight:700;font-size:14.5px}
+.goal .small{font-size:12px;color:var(--sub);font-weight:500;margin-top:2px}
+.goal .st{font-size:12.5px;font-weight:800;border-radius:999px;padding:5px 10px;white-space:nowrap;background:#F4EEE9;color:var(--sub)}
+.goal .st.ok{background:var(--ok);color:#fff}
+.gbar{height:6px;background:#F4EEE9;border-radius:3px;overflow:hidden;margin-top:6px}
+.gbar i{display:block;height:100%;background:var(--accent)}
+.goal.met .gbar i{background:var(--ok)}
+.banner{background:linear-gradient(135deg,#34C38A,#22A06B);color:#fff;border-radius:20px;padding:16px 18px;margin:12px 0 4px;
+  box-shadow:0 8px 20px rgba(34,160,107,.25)}
+.banner .b1{font-size:18px;font-weight:800}
+.banner .b2{font-size:13px;opacity:.95;margin-top:4px;line-height:1.6}
+.wtag{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.hint{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:8px}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="toast" id="toast"></div>
+<main id="view"></main>
+
+<nav>
+  <button data-tab="today" class="on"><span class="i">✅</span>きょう</button>
+  <button data-tab="history"><span class="i">📅</span>きろく</button>
+  <button data-tab="settings"><span class="i">⚙️</span>約束の設定</button>
+</nav>
+
+<div class="overlay" id="ov"><div class="sheet" id="sheet"></div></div>
+<div class="overlay center" id="ov2"><div class="praise" id="praise"></div></div>
+
+<script>
+(() => {
+const KEY = 'yakusoku-v1';
+const EMOJIS = ['🍵','🏃','🍩','📚','💪','🧘','💧','🛏️','📵','🥗','🚭','🦷','🎹','✍️','🧹','💰','🚶','☀️','🍎','⭐'];
+const PRESETS = [['🍵','お酒を飲まない'],['🏃','運動する'],['🍩','間食をしない'],['📚','宿題を終わらせる'],['💧','水を2L飲む'],['🛏️','23時までに寝る'],['📵','寝る前スマホを見ない'],['🧘','ストレッチする']];
+const MILESTONES = [3,7,10,14,21,30,50,77,100,150,200,365,500,1000];
+
+// ---------- storage ----------
+let mem = null;
+function load(){
+  try{ const s = localStorage.getItem(KEY); if(s) return JSON.parse(s); }catch(e){}
+  return mem || {promises:[], log:{}, best:{}, bestAll:0, seen:{}};
+}
+function save(){
+  mem = S;
+  try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){}
+}
+let S = load();
+S.best ||= {}; S.seen ||= {}; S.log ||= {}; S.bestAll ||= 0;
+
+// ---------- dates ----------
+const pad = n => String(n).padStart(2,'0');
+const ymd = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parse = s => { const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); };
+const addDays = (s,n) => { const d=parse(s); d.setDate(d.getDate()+n); return ymd(d); };
+const today = () => ymd(new Date());
+const WD = ['日','月','火','水','木','金','土'];
+let viewDate = today();
+let tab = 'today';
+
+// ---------- logic ----------
+const isDone = (id, day) => (S.log[day]||[]).includes(id);
+const activeOn = day => S.promises.filter(p => p.created <= day);
+
+function streakOf(id, from){
+  const p = S.promises.find(x=>x.id===id); if(!p) return 0;
+  let d = from || today();
+  if(!isDone(id,d)) d = addDays(d,-1);   // 今日まだなら昨日から数える
+  let n = 0;
+  while(d >= p.created && isDone(id,d)){ n++; d = addDays(d,-1); }
+  return n;
+}
+const freqOf = p => (p && p.freq) || 7;
+const isDaily = p => freqOf(p) === 7;
+const freqLabel = p => isDaily(p) ? '毎日' : `週${freqOf(p)}日`;
+// 「毎日」の約束だけが全達成・カレンダーの対象（週●日の約束はやらない日があってOK）
+const reqOn = day => { const a = activeOn(day), d = a.filter(isDaily); return d.length ? d : a; };
+function allDone(day){
+  const a = activeOn(day).filter(isDaily); return a.length>0 && a.every(p=>isDone(p.id,day));
+}
+// endDay を含む直近n日間の達成日数
+function countIn(id, endDay, n=7){ let c=0; for(let i=0;i<n;i++) if(isDone(id, addDays(endDay,-i))) c++; return c; }
+// 週●日の約束：7日ごとの区切りで目標を満たした週が何週続いているか
+function weekStreak(id, from){
+  const p = S.promises.find(x=>x.id===id); if(!p) return 0;
+  const f = freqOf(p); let end = from || today();
+  if(countIn(id,end) < f) end = addDays(end,-7);
+  let n=0;
+  while(end >= p.created && countIn(id,end) >= f){ n++; end = addDays(end,-7); }
+  return n;
+}
+function streakAll(from){
+  let d = from || today();
+  if(!allDone(d)) d = addDays(d,-1);
+  let n=0; const first = S.promises.reduce((m,p)=>p.created<m?p.created:m,'9999');
+  while(d>=first && allDone(d)){ n++; d=addDays(d,-1); }
+  return n;
+}
+const WEEK_MS = [2,4,8,12,26,52];
+function weekMsg(n){
+  if(n>=52) return ['👑','1年間ずっと目標達成！','もはや完全にあなたの習慣です。'];
+  if(n>=26) return ['🏆','半年連続で目標達成！','ここまで続けられる人はなかなかいないよ。'];
+  if(n>=12) return ['💎','12週連続！','3か月続いた習慣は本物。'];
+  if(n>=8)  return ['🥇','8週連続！','2か月近く守り続けてる。すごい！'];
+  if(n>=4)  return ['🥈','4週連続！','1か月、ペースを守れたね。'];
+  return ['🌱','2週連続で目標達成！','いいペース。この調子！'];
+}
+function totalDays(id){ let n=0; for(const k in S.log) if(S.log[k].includes(id)) n++; return n; }
+
+// ---------- praise ----------
+const PRAISE_ONE = ['えらい！👏','ナイス！その調子✨','約束を守れたね！','いいぞ、積み重ね中🔥','かっこいい！','自分との約束、大事にしてるね','今日もやりきった！','すばらしい👍'];
+const PRAISE_STREAK = n => [
+  `${n}日連続！本当にすごい🔥`,`${n}日続いてる！習慣になってきたね`,`${n}日連続達成、拍手👏👏👏`];
+const PRAISE_ALL = ['今日の約束、ぜんぶ達成！🎉','パーフェクトな一日！🌟','全部守れた！最高の自分！'];
+const pick = a => a[Math.floor(Math.random()*a.length)];
+
+function milestoneMsg(n){
+  if(n>=365) return ['👑','伝説級です','1年以上続けられる人は本当にひと握り。誇っていいよ。'];
+  if(n>=100) return ['🏆','100日の壁を突破！','ここまで来たら、もう生き方の一部だね。'];
+  if(n>=50)  return ['💎','50日超え！','続ける力が本物になってきた。'];
+  if(n>=30)  return ['🥇','1か月連続！','30日続けば習慣と言っていい。すごすぎる。'];
+  if(n>=21)  return ['🌳','3週間連続！','根っこが張ってきたね。'];
+  if(n>=14)  return ['🥈','2週間連続！','もう「たまたま」じゃない。実力です。'];
+  if(n>=10)  return ['🔟','10日連続！','二桁突入、おめでとう！'];
+  if(n>=7)   return ['🥉','1週間連続！','最初の大きな山を越えたね。'];
+  return ['🌱','3日連続！','三日坊主を卒業！ここからが楽しいよ。'];
+}
+
+// ---------- render ----------
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function render(){
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on', b.dataset.tab===tab));
+  if(tab==='today') renderToday();
+  else if(tab==='history') renderHistory();
+  else renderSettings();
+}
+
+function renderToday(){
+  const d = parse(viewDate), isToday = viewDate===today();
+  const act = activeOn(viewDate), req = reqOn(viewDate);
+  const done = req.filter(p=>isDone(p.id,viewDate)).length;
+  const pct = req.length ? Math.round(done/req.length*100) : 0;
+  const hasWeekly = act.some(p=>!isDaily(p)) && req.length !== act.length;
+  const sAll = streakAll(isToday?undefined:viewDate);
+  const C = 2*Math.PI*30;
+  let html = `
+    <h1>${isToday?'きょうの約束':'過去の記録を編集中'}</h1>
+    <div class="datebar">
+      <button class="navbtn" id="prev">‹</button>
+      <div class="d">${d.getMonth()+1}月${d.getDate()}日（${WD[d.getDay()]}）</div>
+      <button class="navbtn" id="next" ${isToday?'disabled':''}>›</button>
+    </div>`;
+  if(!S.promises.length){
+    html += `<div class="empty">まだ約束がありません。<br>自分との約束を決めてみよう！</div>
+      <button class="btn" id="addFirst">＋ 約束を追加する</button>`;
+  } else {
+    html += `
+    <div class="hero">
+      <div class="ring">
+        <svg width="72" height="72"><circle cx="36" cy="36" r="30" stroke="rgba(255,255,255,.3)" stroke-width="8" fill="none"/>
+        <circle cx="36" cy="36" r="30" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"
+          stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct/100)}" style="transition:stroke-dashoffset .5s"/></svg>
+        <div class="pct">${pct}%</div>
+      </div>
+      <div>
+        <div class="t1">${hasWeekly?'毎日の約束 ':''}${done} / ${req.length} 達成</div>
+        <div class="t2">${sAll>0?`全達成 ${sAll}日連続 🔥`:(pct===100?'ぜんぶ達成！🎉':'今日もがんばろう')}</div>
+        <div class="t3">${sAll>0?`自己ベスト ${Math.max(S.bestAll,sAll)}日`:'タップして記録しよう'}</div>
+      </div>
+    </div>
+    <div class="list">` +
+    act.map(p=>{
+      const ok = isDone(p.id,viewDate);
+      let line;
+      if(isDaily(p)){
+        const st = streakOf(p.id, isToday?undefined:viewDate);
+        line = `${st>0?`🔥 <b>${st}日連続</b>`:'連続記録 0日'}・ベスト ${Math.max(S.best[p.id]||0,st)}日`;
+      } else {
+        const f=freqOf(p), c=countIn(p.id,viewDate), ws=weekStreak(p.id, isToday?undefined:viewDate);
+        line = `🎯 直近7日 <b>${c}/${f}日</b>${c>=f?' 達成✓':`（あと${f-c}日）`}${ws>0?`・🔥${ws}週連続`:''}`;
+      }
+      return `<div class="item ${ok?'done':''}" data-id="${p.id}">
+        <div class="emoji">${esc(p.emoji)}</div>
+        <div><div class="name">${esc(p.name)}${isDaily(p)?'':`<span class="wtag">${freqLabel(p)}</span>`}</div>
+        <div class="streak">${line}</div></div>
+        <div class="check">${ok?'✓':''}</div></div>`;
+    }).join('') + `</div>`;
+    if(!isToday) html += `<button class="btn ghost" id="backToday">きょうに戻る</button>`;
+  }
+  $('#view').innerHTML = html;
+  $('#prev').onclick = ()=>{ viewDate = addDays(viewDate,-1); render(); };
+  $('#next').onclick = ()=>{ if(viewDate<today()){ viewDate = addDays(viewDate,1); render(); } };
+  $('#addFirst') && ($('#addFirst').onclick = ()=>openEditor());
+  $('#backToday') && ($('#backToday').onclick = ()=>{ viewDate=today(); render(); });
+  document.querySelectorAll('.item').forEach(el=>el.onclick=()=>toggle(el.dataset.id));
+}
+
+function toggle(id){
+  const day = viewDate;
+  const arr = S.log[day] ||= [];
+  const i = arr.indexOf(id);
+  if(i>=0){ arr.splice(i,1); if(!arr.length) delete S.log[day]; save(); render(); return; }
+  arr.push(id);
+  const p = S.promises.find(x=>x.id===id);
+  S.bestW ||= {};
+  // 連続記録の更新
+  const st = isDaily(p) ? streakOf(id) : 0;
+  if(st > (S.best[id]||0)) S.best[id] = st;
+  const ws = isDaily(p) ? 0 : weekStreak(id);
+  if(ws > (S.bestW[id]||0)) S.bestW[id] = ws;
+  const sa = streakAll();
+  const newAllBest = sa > S.bestAll; if(newAllBest) S.bestAll = sa;
+  save(); render();
+
+  if(day!==today()){ toast('記録を更新しました'); return; }
+  // マイルストーン（全達成 > 個別）
+  const key = (k,n)=>`${k}:${n}:${today()}`;
+  if(!isDaily(p)){
+    const f=freqOf(p), c=countIn(id,today());
+    if(c===f){
+      confetti(120);
+      if(WEEK_MS.includes(ws) && !S.seen[key('w'+id,ws)]){
+        S.seen[key('w'+id,ws)]=1; save();
+        const [e,t,m]=weekMsg(ws);
+        showPraise(e, `「${esc(p.name)}」${ws}週連続で目標達成！`, `${t}<br>${m}`);
+      } else {
+        showPraise('🎯', `「${esc(p.name)}」<br>今週の目標達成！`, `直近7日で${f}日、約束を守れました。<br>${ws>1?`${ws}週連続の達成です！`:'この調子でいこう！'}`);
+      }
+    } else if(c<f){ confetti(25); toast(`${pick(PRAISE_ONE)} 目標まであと${f-c}日`); }
+    else { confetti(25); toast(`目標超え！直近7日で${c}日 🔥`); }
+    return;
+  }
+  if(allDone(today())){
+    confetti(160);
+    if(MILESTONES.includes(sa) && !S.seen[key('all',sa)]){
+      S.seen[key('all',sa)]=1; save();
+      const [e,t,m]=milestoneMsg(sa);
+      showPraise(e, `全部の約束を${sa}日連続達成！`, `${t}<br>${m}`);
+    } else {
+      toast(sa>1?`${pick(PRAISE_ALL)} 全達成${sa}日連続！`:pick(PRAISE_ALL));
+    }
+    return;
+  }
+  if(MILESTONES.includes(st) && !S.seen[key(id,st)]){
+    S.seen[key(id,st)]=1; save();
+    const [e,t,m]=milestoneMsg(st);
+    confetti(120);
+    showPraise(e, `「${esc(p.name)}」${st}日連続！`, `${t}<br>${m}`);
+  } else if(st>=2){
+    confetti(30); toast(pick(PRAISE_STREAK(st)));
+  } else {
+    confetti(25); toast(pick(PRAISE_ONE));
+  }
+}
+
+let weekOff = 0, monthOff = 0;
+
+// 達成表：days = ['YYYY-MM-DD', ...]
+function buildTable(days, cls){
+  const t = today();
+  // 集計対象：約束の開始日以降で、今日より前の日（今日はチェック済みのものだけ数える）
+  const cell = (p,k) => {
+    if(k > t || k < p.created) return {h:'<span class="na">−</span>', e:0, o:0, d:0, el:0};
+    if(!isDaily(p)) // 週●日の約束：やらない日は×にしない。日別の集計にも入れない
+      return isDone(p.id,k) ? {h:'<span class="o">◯</span>', e:0, o:0, d:1, el:1} : {h:'<span class="na">・</span>', e:0, o:0, d:0, el:1};
+    if(isDone(p.id,k)) return {h:'<span class="o">◯</span>', e:1, o:1, d:1, el:1};
+    if(k === t) return {h:'<span class="na">・</span>', e:0, o:0, d:0, el:0};
+    return {h:'<span class="x">×</span>', e:1, o:0, d:0, el:1};
+  };
+  const pctStr = (o,e) => e ? Math.round(o/e*100)+'%' : '−';
+  let head = `<tr><th class="nm"></th>` + days.map(k=>{
+    const d=parse(k), w=d.getDay();
+    const c = k===t?'tdy':w===0?'sun':w===6?'sat':'';
+    return cls==='month'
+      ? `<th class="${c}">${d.getDate()}<br>${WD[w]}</th>`
+      : `<th class="${c}">${d.getDate()}<br>${WD[w]}</th>`;
+  }).join('') + `<th class="rt">達成率</th></tr>`;
+  let body = '', colE = days.map(()=>0), colO = days.map(()=>0), E=0, O=0;
+  for(const p of S.promises){
+    let e=0,o=0,dn=0,el=0;
+    const tds = days.map((k,i)=>{ const c=cell(p,k); e+=c.e; o+=c.o; dn+=c.d; el+=c.el; colE[i]+=c.e; colO[i]+=c.o; return `<td>${c.h}</td>`; }).join('');
+    let rt;
+    if(isDaily(p)){ E+=e; O+=o; rt = pctStr(o,e); }
+    else { // 目標日数 = 対象日数 × 週●日 ÷ 7
+      const goal = el*freqOf(p)/7; E+=goal; O+=Math.min(dn,goal);
+      rt = goal ? (cls==='week' ? `${dn}/${Math.round(goal)}${dn>=goal?'<br><span style="color:var(--ok)">達成</span>':''}` : Math.min(100,Math.round(dn/goal*100))+'%') : '−';
+    }
+    body += `<tr><td class="nm">${esc(p.emoji)} ${esc(p.name)}${isDaily(p)?'':`<br><span class="wtag" style="margin:0">${freqLabel(p)}</span>`}</td>${tds}<td class="rt">${rt}</td></tr>`;
+  }
+  const sum = `<tr class="sum"><td class="nm" style="color:var(--sub)">日別</td>` +
+    days.map((k,i)=>`<td>${colE[i]? Math.round(colO[i]/colE[i]*100) : ''}</td>`).join('') +
+    `<td class="rt">${pctStr(O,E)}</td></tr>`;
+  return { html:`<div class="tscroll"><table class="ach ${cls}">${head}${body}${sum}</table></div>`,
+           rate: E? Math.round(O/E*100) : null, O: Math.round(O), E: Math.round(E) };
+}
+
+function weekSection(){
+  const t = today();
+  const end = addDays(t, -7*weekOff);
+  const days = Array.from({length:7},(_,i)=>addDays(end, i-6));
+  const r = buildTable(days,'week');
+  const a=parse(days[0]), b=parse(days[6]);
+  const label = weekOff===0 ? '直近1週間' : `${a.getMonth()+1}/${a.getDate()}〜${b.getMonth()+1}/${b.getDate()}`;
+  return `<div class="section">1週間の達成表</div>
+  <div class="card">
+    <div class="tblhead"><button class="navbtn" id="wPrev">‹</button><div class="ttl">${label}</div>
+      <button class="navbtn" id="wNext" ${weekOff===0?'disabled':''}>›</button></div>
+    <div class="bigrate"><span class="v">${r.rate===null?'−':r.rate+'%'}</span><span class="k">達成率（${r.O} / ${r.E}）</span></div>
+    <div class="bar"><i style="width:${r.rate||0}%"></i></div>
+    ${r.html}
+    <div class="hint">◯達成 ×未達成 ・今日まだ／週●日の約束で未実施 −対象外。日別の数字は「毎日」の約束の達成率（%）。週●日の約束は「達成日数/目標日数」。</div>
+  </div>`;
+}
+
+function monthSection(){
+  const now = new Date(); const first = new Date(now.getFullYear(), now.getMonth()-monthOff, 1);
+  const n = new Date(first.getFullYear(), first.getMonth()+1, 0).getDate();
+  const days = Array.from({length:n},(_,i)=>ymd(new Date(first.getFullYear(), first.getMonth(), i+1)));
+  const r = buildTable(days,'month');
+  return `<div class="section">1か月の達成表</div>
+  <div class="card">
+    <div class="tblhead"><button class="navbtn" id="mPrev">‹</button><div class="ttl">${first.getFullYear()}年${first.getMonth()+1}月</div>
+      <button class="navbtn" id="mNext" ${monthOff===0?'disabled':''}>›</button></div>
+    <div class="bigrate"><span class="v">${r.rate===null?'−':r.rate+'%'}</span><span class="k">月間達成率（${r.O} / ${r.E}）</span></div>
+    <div class="bar"><i style="width:${r.rate||0}%"></i></div>
+    ${r.html}
+    <div class="hint">横にスクロールできます。今日の未チェック分は集計に含めません。</div>
+  </div>`;
+}
+
+// 過去1週間（今日を含む7日間）の目標達成状況
+function goalSection(){
+  const t = today();
+  const rows = S.promises.map(p=>{ const f=freqOf(p), c=countIn(p.id,t); return {p,f,c,met:c>=f}; });
+  const met = rows.filter(r=>r.met);
+  let banner = '';
+  if(met.length === rows.length)
+    banner = `<div class="banner"><div class="b1">🎉 過去1週間、すべての約束で目標達成！</div><div class="b2">自分との約束を守りきった1週間。本当にすごい！</div></div>`;
+  else if(met.length)
+    banner = `<div class="banner"><div class="b1">🎉 過去1週間で目標達成！</div><div class="b2">${met.map(r=>`${esc(r.p.emoji)} ${esc(r.p.name)}（${r.c}/${r.f}日）`).join('<br>')}</div></div>`;
+  const a=parse(addDays(t,-6)), b=parse(t);
+  return `${banner}
+  <div class="section">過去1週間の目標（${a.getMonth()+1}/${a.getDate()}〜${b.getMonth()+1}/${b.getDate()}）</div>
+  <div class="card">${rows.map(r=>`
+    <div class="goal ${r.met?'met':''}"><div class="emoji" style="font-size:22px;width:30px">${esc(r.p.emoji)}</div>
+      <div class="name">${esc(r.p.name)}<div class="small">目標：${freqLabel(r.p)}　実績：${r.c}日</div>
+        <div class="gbar"><i style="width:${Math.min(100,Math.round(r.c/r.f*100))}%"></i></div></div>
+      <div class="st ${r.met?'ok':''}">${r.met?'達成 🎉':`あと${r.f-r.c}日`}</div></div>`).join('')}
+  </div>`;
+}
+
+function renderHistory(){
+  const t = today();
+  // 5週間分カレンダー（月曜始まりではなく日曜始まり）
+  const end = parse(t); const start = new Date(end); start.setDate(end.getDate()-end.getDay()-28);
+  let cells = WD.map(w=>`<div class="h">${w}</div>`).join('');
+  for(let i=0;i<35;i++){
+    const dd = new Date(start); dd.setDate(start.getDate()+i); const k = ymd(dd);
+    if(k>t){ cells += `<div class="c out"></div>`; continue; }
+    const a = reqOn(k), n = a.filter(p=>isDone(p.id,k)).length;
+    let cls = '';
+    if(a.length){ const r=n/a.length; cls = r===1?'full':r>=.66?'l3':r>=.33?'l2':r>0?'l1':''; }
+    cells += `<div class="c ${cls} ${k===t?'today':''}" data-k="${k}">${dd.getDate()}</div>`;
+  }
+  // 30日達成率
+  let tot=0, ok=0, perfect=0;
+  for(let i=0;i<30;i++){ const k=addDays(t,-i); const a=reqOn(k); if(!a.length) continue;
+    const n=a.filter(p=>isDone(p.id,k)).length; tot+=a.length; ok+=n; if(n===a.length) perfect++; }
+  const rate = tot?Math.round(ok/tot*100):0;
+  const best = Math.max(S.bestAll, streakAll());
+  const maxStreak = Math.max(0, ...S.promises.filter(isDaily).map(p=>Math.max(S.best[p.id]||0, streakOf(p.id))));
+  $('#view').innerHTML = `
+    <h1>きろく</h1>
+    ${S.promises.length ? goalSection() : ''}
+    <div class="stats" style="margin-top:10px">
+      <div class="stat"><div class="v">${streakAll()}<small style="font-size:14px">日</small></div><div class="k">全達成の連続日数</div></div>
+      <div class="stat"><div class="v">${best}<small style="font-size:14px">日</small></div><div class="k">全達成の自己ベスト</div></div>
+      <div class="stat"><div class="v">${rate}<small style="font-size:14px">%</small></div><div class="k">直近30日の達成率</div></div>
+      <div class="stat"><div class="v">${perfect}<small style="font-size:14px">日</small></div><div class="k">直近30日のパーフェクト</div></div>
+    </div>
+    ${S.promises.length ? weekSection() + monthSection() : ''}
+    <div class="section">最近5週間（タップでその日を編集）</div>
+    <div class="card"><div class="cal">${cells}</div>
+      <div class="legend"><span style="background:#F4EEE9"></span>0 <span style="background:#FFD9C7"></span><span style="background:#FFB592"></span><span style="background:#FF8A5B"></span>一部 <span style="background:var(--ok)"></span>全達成</div>
+    </div>
+    <div class="section">約束ごとの記録</div>
+    <div class="card">${S.promises.length? S.promises.map(p=>`
+      <div class="row"><div class="emoji" style="font-size:22px;width:30px">${esc(p.emoji)}</div>
+      <div class="name">${esc(p.name)}<span class="wtag">${freqLabel(p)}</span><div class="small">${isDaily(p)
+        ? `いま ${streakOf(p.id)}日連続・ベスト ${Math.max(S.best[p.id]||0,streakOf(p.id))}日`
+        : `目標達成 ${weekStreak(p.id)}週連続・ベスト ${Math.max((S.bestW||{})[p.id]||0,weekStreak(p.id))}週`}・通算 ${totalDays(p.id)}日</div></div></div>`).join('')
+      : '<div class="small" style="color:var(--sub)">約束を追加すると表示されます</div>'}</div>
+    <div class="section">連続記録バッジ（最高 ${maxStreak}日）</div>
+    <div class="card"><div class="badges">${MILESTONES.slice(0,11).map(m=>`<div class="badge ${maxStreak>=m?'':'off'}">${maxStreak>=m?'🏅':'🔒'} ${m}日</div>`).join('')}</div></div>`;
+  const on = (s,f)=>{ const el=$(s); if(el) el.onclick=f; };
+  on('#wPrev',()=>{ weekOff++; renderHistory(); });
+  on('#wNext',()=>{ if(weekOff>0){ weekOff--; renderHistory(); } });
+  on('#mPrev',()=>{ monthOff++; renderHistory(); });
+  on('#mNext',()=>{ if(monthOff>0){ monthOff--; renderHistory(); } });
+  document.querySelectorAll('.cal .c[data-k]').forEach(el=>el.onclick=()=>{ viewDate=el.dataset.k; tab='today'; render(); });
+}
+
+function renderSettings(){
+  $('#view').innerHTML = `
+    <h1>約束の設定</h1>
+    <div class="card" style="margin-top:10px">${S.promises.length? S.promises.map((p,i)=>`
+      <div class="row"><div class="emoji" style="font-size:22px;width:30px">${esc(p.emoji)}</div>
+        <div class="name">${esc(p.name)}<div class="small">${freqLabel(p)}・${p.created.replace(/-/g,'/')} から</div></div>
+        <button class="iconbtn" data-up="${i}" ${i===0?'disabled style="opacity:.3"':''}>↑</button>
+        <button class="iconbtn" data-edit="${p.id}">編集</button></div>`).join('')
+      : '<div class="small" style="color:var(--sub)">まだ約束がありません</div>'}</div>
+    <button class="btn" id="add">＋ 約束を追加する</button>
+    <div class="section">バックアップ</div>
+    <div class="card">
+      <div class="hint">データはこのiPhoneの中だけに保存されます。機種変更の前や念のため、ときどきバックアップをコピーしてメモアプリなどに保存しておくと安心です。</div>
+      <button class="btn ghost" id="exp">バックアップをコピー</button>
+      <button class="btn ghost" id="imp">バックアップから復元</button>
+    </div>
+    <div class="section">ホーム画面に追加するには</div>
+    <div class="card"><div class="hint">Safariでこのページを開き、下の共有ボタン（□↑）→「ホーム画面に追加」をタップ。アイコンからアプリのように起動できます。</div></div>`;
+  $('#add').onclick = ()=>openEditor();
+  document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openEditor(b.dataset.edit));
+  document.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.up; if(i<1) return;
+    [S.promises[i-1],S.promises[i]]=[S.promises[i],S.promises[i-1]]; save(); render(); });
+  $('#exp').onclick = exportData;
+  $('#imp').onclick = importData;
+}
+
+// ---------- sheets ----------
+function openSheet(html){ $('#sheet').innerHTML = html; $('#ov').classList.add('show'); }
+function closeSheet(){ $('#ov').classList.remove('show'); }
+$('#ov').addEventListener('click', e=>{ if(e.target.id==='ov') closeSheet(); });
+
+function openEditor(id){
+  const p = id ? S.promises.find(x=>x.id===id) : null;
+  let emoji = p ? p.emoji : '⭐';
+  let freq = freqOf(p);
+  openSheet(`
+    <h2>${p?'約束を編集':'新しい約束'}</h2>
+    ${p?'':`<label>よくある約束</label><div class="presets">${PRESETS.map((x,i)=>`<button data-pre="${i}">${x[0]} ${x[1]}</button>`).join('')}</div>`}
+    <label>約束の内容</label>
+    <input type="text" id="nm" maxlength="30" placeholder="例：お酒を飲まない" value="${p?esc(p.name):''}">
+    <label>目標の頻度（1週間のうち何日守るか）</label>
+    <div class="presets" id="fq">${[7,1,2,3,4,5,6].map(n=>`<button data-f="${n}" class="${n===freq?'sel':''}">${n===7?'毎日':`週${n}日`}</button>`).join('')}</div>
+    <div class="hint" id="fqh"></div>
+    <label>アイコン</label>
+    <div class="emojis">${EMOJIS.map(e=>`<button data-e="${e}" class="${e===emoji?'sel':''}">${e}</button>`).join('')}</div>
+    <button class="btn" id="ok">${p?'保存する':'追加する'}</button>
+    ${p?`<button class="btn danger" id="del">この約束を削除</button>`:''}
+    <button class="btn ghost" id="cancel">キャンセル</button>`);
+  const nm = $('#nm');
+  document.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>{ emoji=b.dataset.e;
+    document.querySelectorAll('[data-e]').forEach(x=>x.classList.toggle('sel',x===b)); });
+  document.querySelectorAll('[data-pre]').forEach(b=>b.onclick=()=>{ const [e,n]=PRESETS[+b.dataset.pre];
+    nm.value=n; emoji=e; document.querySelectorAll('[data-e]').forEach(x=>x.classList.toggle('sel',x.dataset.e===e)); });
+  const fh = ()=>{ $('#fqh').textContent = freq===7 ? '毎日守る約束です。連続日数を記録します。' : `直近7日間で${freq}日できたら目標達成。やらない日があっても×にはなりません。`; };
+  fh();
+  document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{ freq=+b.dataset.f;
+    document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('sel',x===b)); fh(); });
+  $('#cancel').onclick = closeSheet;
+  $('#ok').onclick = ()=>{
+    const name = nm.value.trim(); if(!name){ nm.focus(); nm.style.borderColor='var(--accent)'; return; }
+    if(p){ p.name=name; p.emoji=emoji; p.freq=freq; }
+    else S.promises.push({id: 'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,6), name, emoji, freq, created: today()});
+    save(); closeSheet(); render(); toast(p?'保存しました':'約束を追加しました！');
+  };
+  if(p) $('#del').onclick = ()=>{
+    const b=$('#del');
+    if(b.dataset.c){ S.promises = S.promises.filter(x=>x.id!==p.id); delete S.best[p.id];
+      for(const k in S.log){ S.log[k]=S.log[k].filter(x=>x!==p.id); if(!S.log[k].length) delete S.log[k]; }
+      save(); closeSheet(); render(); toast('削除しました'); }
+    else { b.dataset.c=1; b.textContent='もう一度タップで削除（記録も消えます）'; b.style.background='#D9433B'; b.style.color='#fff'; }
+  };
+}
+
+function exportData(){
+  const txt = JSON.stringify(S);
+  openSheet(`<h2>バックアップ</h2>
+    <div class="hint">下の文字列をまるごとメモアプリなどに保存してください。</div>
+    <textarea id="bk" readonly>${esc(txt)}</textarea>
+    <button class="btn" id="cp">コピーする</button>
+    <button class="btn ghost" id="cl">閉じる</button>`);
+  $('#cl').onclick = closeSheet;
+  $('#cp').onclick = async ()=>{
+    try{ await navigator.clipboard.writeText(txt); toast('コピーしました'); }
+    catch(e){ const t=$('#bk'); t.focus(); t.select(); toast('選択した文字をコピーしてください'); }
+  };
+}
+function importData(){
+  openSheet(`<h2>バックアップから復元</h2>
+    <div class="hint">保存しておいた文字列を貼り付けてください。今のデータは置き換わります。</div>
+    <textarea id="bk" placeholder='{"promises":...'></textarea>
+    <button class="btn" id="go">復元する</button>
+    <button class="btn ghost" id="cl">キャンセル</button>`);
+  $('#cl').onclick = closeSheet;
+  $('#go').onclick = ()=>{
+    try{ const d = JSON.parse($('#bk').value);
+      if(!Array.isArray(d.promises) || typeof d.log!=='object') throw 0;
+      S = Object.assign({promises:[],log:{},best:{},bestAll:0,seen:{}}, d); save(); closeSheet(); render(); toast('復元しました');
+    }catch(e){ toast('読み込めませんでした。文字列を確認してください'); }
+  };
+}
+
+// ---------- praise modal / toast ----------
+function showPraise(emoji, title, body){
+  $('#praise').innerHTML = `<div class="big">${emoji}</div><h3>${title}</h3><p>${body}</p>
+    <button class="btn" id="pc">ありがとう！</button>`;
+  $('#ov2').classList.add('show');
+  $('#pc').onclick = ()=>$('#ov2').classList.remove('show');
+}
+let tt;
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),2200); }
+
+// ---------- confetti ----------
+const cv = $('#fx'), cx = cv.getContext('2d'); let parts=[], raf=0;
+function resize(){ const r=devicePixelRatio||1; cv.width=innerWidth*r; cv.height=innerHeight*r; cx.setTransform(r,0,0,r,0,0); }
+addEventListener('resize', resize); resize();
+function confetti(n){
+  const cols=['#FF7A45','#2FB57C','#F5B300','#4C8DFF','#FF5DA2'];
+  for(let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*80, y:innerHeight*.35,
+    vx:(Math.random()-.5)*12, vy:-Math.random()*12-4, s:Math.random()*6+4, r:Math.random()*6,
+    vr:(Math.random()-.5)*.3, c:cols[i%cols.length], life:0});
+  if(!raf) raf=requestAnimationFrame(tick);
+}
+function tick(){
+  cx.clearRect(0,0,innerWidth,innerHeight);
+  parts = parts.filter(p=>p.life<140 && p.y<innerHeight+20);
+  for(const p of parts){ p.vy+=.35; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.r+=p.vr; p.life++;
+    cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.globalAlpha=Math.max(0,1-p.life/140);
+    cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2); cx.restore(); }
+  raf = parts.length ? requestAnimationFrame(tick) : 0;
+}
+
+// ---------- tabs & day change ----------
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{ tab=b.dataset.tab; if(tab==='today') viewDate=today(); render(); window.scrollTo(0,0); });
+let lastDay = today();
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && today()!==lastDay){ lastDay=today(); viewDate=today(); render(); } });
+
+render();
+})();
+</script>
+</body>
+</html>
